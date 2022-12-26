@@ -1,4 +1,4 @@
-import express from "express"
+import express, { json } from "express"
 import dotenv from "dotenv"
 import userRouter from "./routes/user.js"
 import erorrHandler from "./middleware/ErorrHandler.js"
@@ -13,6 +13,9 @@ connectDB()
 app.use(express.json())
 app.use("/api/v2", userRouter)
 app.use("/api/v2/blogs", blogRouter)
+app.get("/", (req, res) => {
+  res.status(200).send("<h2>Hi i am live API Project Two</h2>")
+})
 app.use(erorrHandler)
 
 app.listen(PORT, () => {
