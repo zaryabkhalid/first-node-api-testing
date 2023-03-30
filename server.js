@@ -13,11 +13,8 @@ connectDB();
 app.use(express.json());
 app.use("/api/v2", userRouter);
 app.use("/api/v2/blogs", blogRouter);
-app.get("/", (req, res) => {
-  res.status(200).send("<h2>Hi i am live API Project Two</h2>");
-});
 app.use(erorrHandler);
 
 app.listen(PORT, () => {
-  console.log(`Server is listening on ${PORT}`);
+	console.log(`Server is listening on ${PORT}`);
 });
